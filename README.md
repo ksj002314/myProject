@@ -1,9 +1,17 @@
 # myProject
-language : Java
-FrameWork : Spring Boot, JPA, BootStrap
-Template Engine : Thymeleaf
+####################################
+
+언어 : Java
+
+프레임워크 : Spring Boot, JPA, BootStrap
+     
+템플릿 엔진 : Thymeleaf
+
 IDEA : IntelliJ
-DB : Maria DB
+
+데이터베이스 : Maria DB
+
+#####################################
 
 페이지 소개
 - 커뮤니티 사이트 구현
