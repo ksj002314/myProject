@@ -73,30 +73,18 @@
                         <th colspan="4"> <a href="/board/notice"> <img src="..." th:src="@{/image/notice_.jpg}" class="card-img-top" alt="..."> </a></th>
                     </tr>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">번호</th>
+                        <th scope="col">제목</th>
+                        <th scope="col">내용</th>
+                        <th scope="col">작성자</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
+                    <tr  th:each="board : ${boards}">
+                        <th th:text="${board.id}">1</th>
+                        <td th:text="${board.title}">Mark</td>
+                        <td th:text="${board.content}">Otto</td>
                         <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
                     </tr>
                     </tbody>
                 </table>
