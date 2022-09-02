@@ -3,6 +3,7 @@ package com.mp.myProject.controller;
 
 import com.mp.myProject.dto.Board;
 import com.mp.myProject.repository.BoardRepository;
+import com.mp.myProject.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,6 +22,10 @@ public class BoardController {
     @Autowired
     private BoardRepository boardRepository;
 
+    @Autowired
+    private BoardService boardService;
+
+    /* 페이징 처리 */
     @GetMapping("/board/notice")
     public String notice(Model model, @PageableDefault(size = 5) Pageable pageable,
                          @RequestParam(required = false, defaultValue = "") String searchText) {
@@ -34,6 +39,7 @@ public class BoardController {
         return "notice";
     }
 
+
     @GetMapping("/board/create")
     public String create(Model model, @RequestParam(required = false) Long id) {
         if(id == null) {
@@ -46,17 +52,28 @@ public class BoardController {
         return "create";
     }
 
+    /* 글 쓰기 */
     @PostMapping("/board/create")
     public String greetingSubmit(@ModelAttribute Board board, Model model) {
-       boardRepository.save(board);
+       boardService.boardWrite(board);
         return "redirect:/board/notice";
     }
 
-    /* delete */
-    /*@PostMapping("/board/notice/delete")
-    public String delete(@PathVariable Long id) {
-        boardRepository.deleteById(id);
+    /* 글 보기*/
+    @GetMapping("/board/notice/view")
+    public String boardView(Model model, Long id) {
+        model.addAttribute("board", boardService.boardView(id));
+
+        return "boardView";
+    }
+
+    /* 글 삭제 */
+    @GetMapping("/board/notice/delete")
+    public String boardDelete(Long id) {
+
+        boardService.boardDelete(id);
         return "redirect:/board/notice";
-    }*/
+    }
+
 
 }

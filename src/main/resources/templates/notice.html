@@ -102,15 +102,15 @@
         <tbody>
         <tr  th:each="board : ${boards}">
           <th th:text="${board.id}"></th>
-          <td><a th:text="${board.title}" th:href="@{/board/create(id=${board.id})}"></a></td>
-          <td th:text="${board.content}"></td>
+          <td><a th:text="${board.title}" th:href="@{/board/notice/view(id=${board.id})}" ></a></td>
+          <td th:text="${board.content}" ></td>
           <td>작성자</td>
           <td>
 
           </td>
           <td>
-            <button type="button" class="btn btn-primary" >삭제</button>
-            <button type="button" class="btn btn-primary" >수정</button>
+            <a role="button" class="btn btn-primary"  th:href="@{/board/notice/delete(id=${board.id})}">삭제</a>
+            <a role="button" class="btn btn-primary"  th:href="@{/board/create(id=${board.id})}">수정</a>
           </td>
         </tr>
         </tbody>
