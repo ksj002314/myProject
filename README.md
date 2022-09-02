@@ -23,3 +23,5 @@ IDEA : IntelliJ
 - JPA를 사용하여 Spring Boot와 MariaDB 연동 
 - NOTICE 게시판 글쓰기 기능, 수정기능, 페이징 기능 적용
 
+09월1~2일
+- 삭제 기능, 상세 보기 기능 적용
