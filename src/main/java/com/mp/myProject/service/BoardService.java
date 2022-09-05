@@ -24,7 +24,7 @@ public class BoardService {
 
         return boardRepository.findById(id).get();
     }
-    
+
     /* 삭제하기 */
    public void boardDelete(Long id) {
 
